@@ -1,0 +1,9 @@
+spring:
+  rabbitmq:
+    host: swan.rmq.cloudamqp.com
+    password: ImStIfzlSEiGk72iJIg1sRphhg6IoMrZ
+    username: rbrilnwu
+    virtual-host: rbrilnwu
+execution:
+  duration:
+    100000
