@@ -1,19 +1,21 @@
 package com.tbagrel1.sdis.rabbitmq_demo;
 
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.util.StopWatch;
 
-@RabbitListener(queues = "tasks")
-public class WorkQueueReceiver {
-    private final int id;
+public class PubSubReceiver {
 
-    public WorkQueueReceiver(int id) {
-        this.id = id;
+    @RabbitListener(queues = "#{anonymousQueue1.name}")
+    public void receive1(String message) throws InterruptedException {
+        receive(message, 1);
     }
 
-    @RabbitHandler
-    public void receive(String message) throws InterruptedException {
+    @RabbitListener(queues = "#{anonymousQueue2.name}")
+    public void receive2(String message) throws InterruptedException {
+        receive(message, 2);
+    }
+
+    public void receive(String message, int id) throws InterruptedException {
         StopWatch watch = new StopWatch();
         watch.start();
         System.out.printf("[<-] %d: '%s'%n", id, message);

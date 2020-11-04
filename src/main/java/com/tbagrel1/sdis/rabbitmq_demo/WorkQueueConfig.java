@@ -15,11 +15,13 @@ public class WorkQueueConfig {
 
     @Profile("receiver")
     private static class ReceiverConfig {
-        @Bean WorkQueueReceiver receiver1() {
+        @Bean
+        public WorkQueueReceiver receiver1() {
             return new WorkQueueReceiver(1);
         }
 
-        @Bean WorkQueueReceiver receiver2() {
+        @Bean
+        public WorkQueueReceiver receiver2() {
             return new WorkQueueReceiver(2);
         }
     }
