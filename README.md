@@ -15,5 +15,5 @@ java -Dserver.port=8081 -jar target/rabbitmq_demo-0.1.0.jar --spring.profiles.ac
 ## Launch receiver
 
 ```bash
-java -Dserver.port=8082 -jar target/rabbitmq_demo-0.1.0.jar --spring.profiles.active=receiver
+java -Dserver.port=8082 -jar target/rabbitmq_demo-0.1.0.jar --spring.profiles.active="receiver"
 ```
